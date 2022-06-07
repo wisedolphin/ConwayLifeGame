@@ -1,0 +1,13 @@
+all: Conway
+
+Conway: main.o World_field.o 
+	g++ main.o World_field.o -o Conway
+
+main.o: main.cpp Cell.h World_field.h
+	g++ -c main.cpp
+
+Wold_field.o: World_field.cpp Cell.h World_field.h
+	g++ -c World_field.cpp
+
+clean:
+	rm -rf *.o Conway
